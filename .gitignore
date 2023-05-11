@@ -164,6 +164,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+
+
+next_help.md
 HELP.md
 .gradle
 build/
