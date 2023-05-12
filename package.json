@@ -1,6 +1,7 @@
 {
   "name": "p",
   "version": "0.1.0",
+  "proxy": "http://localhost:8080",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -12,11 +13,13 @@
     "@types/node": "20.1.2",
     "@types/react": "18.2.6",
     "@types/react-dom": "18.2.4",
+    "bootstrap": "^5.2.3",
     "eslint": "8.40.0",
     "eslint-config-next": "13.4.1",
     "next": "13.4.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "reactstrap": "^9.1.9",
     "the-new-css-reset": "^1.8.4",
     "typescript": "5.0.4"
   },

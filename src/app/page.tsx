@@ -1,17 +1,18 @@
-import styles from './page.module.scss'
-/* export async function getStaticProps(){
-  const res = await fetch ('http://localhost:8080/hello');
-  const helloJson = await res.json()
+'use client'
 
-  return helloJson
-} */
-export default function Home() {
+import styles from './page.module.scss'
+import NavbarUI from './NavbarUI';
+import {Button,Container} from 'reactstrap';
+import Link from 'next/link';
+import ListHome from './List/ListHome';
+export default  function Home() {
   return (
     <main className={styles.main}>
-      <div className={styles.container}>
-        <h1>Test</h1>
-        
-      </div>
+    <Container fluid>
+      <Button color="warning"><Link href="/clients">Info</Link></Button>
+      {/* @ts-expect-error Async Server Component */}
+      <ListHome></ListHome>
+    </Container>
     </main>
   )
 }
