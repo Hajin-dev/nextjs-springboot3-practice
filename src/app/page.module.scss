@@ -5,32 +5,6 @@
         h1{
             font-size: 3rem;
         }
-        .loginBox{
-            form{
-                .inputDiv{
-                    margin: 10px 0;
-                    input{
-                        display: block;
-                        height: 2rem;
-                        width: 200px;
-                        padding: 10px;
-                        border: 1px grey solid;
-                        border-radius: 10px;
-                    }
-
-                }
-               
-            }
-            .submit{
-                font-size: 1rem;
-                border: 1px grey solid;
-                padding: 4px;
-                border-radius: 10px;
-                &:active{
-                    background-color: black;
-                    color:white;
-                }
-            }
-        }
+        
     }
 }
