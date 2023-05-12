@@ -35,12 +35,12 @@ public class DBLoader  {
 
     } */
     @PostMapping
-    public ResponseEntity createInfo(@RequestBody InfoEntity infoEntity) throws URISyntaxException{
+    public ResponseEntity<InfoEntity> createInfo(@RequestBody InfoEntity infoEntity) throws URISyntaxException{
             InfoEntity savedInfo = this.infoRepository.save(infoEntity);
             return ResponseEntity.created(new URI("/info/"+ savedInfo.getId())).body(savedInfo);
     }
     @PutMapping("/{id}")
-    public ResponseEntity updateInfo(@PathVariable Long id, @RequestBody InfoEntity info){
+    public ResponseEntity<InfoEntity> updateInfo(@PathVariable Long id, @RequestBody InfoEntity info){
         InfoEntity currentInfo = this.infoRepository.findById(id).orElseThrow(RuntimeException::new);
         currentInfo.setEmail(info.getEmail());
         currentInfo.setName(info.getName());
@@ -48,7 +48,7 @@ public class DBLoader  {
         return ResponseEntity.ok(currentInfo);
     }
     @DeleteMapping("/{id}")
-    public ResponseEntity deleteInfo(@PathVariable Long id){
+    public ResponseEntity<InfoEntity> deleteInfo(@PathVariable Long id){
         this.infoRepository.deleteById(id);
         return ResponseEntity.ok().build();
         

@@ -16,7 +16,7 @@ public class InfoEntity {
 
     private String name;
     private String email;
-    private InfoEntity() {}
+    //rivate InfoEntity() {}
     public InfoEntity(String name,String email){
         this.name=name;
         this.email=email;
