@@ -1,42 +1,26 @@
-import { Button, ButtonGroup, Container, Table } from 'reactstrap';
-async function remove(id:number) {
-    await fetch(`/info/${id}`, {
-        method: 'DELETE',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
+
+import { test } from 'node:test';
+import { Table } from 'reactstrap';
+import InfoDataCell from '@/components/InfoDataCell';
+async function getTest(){
+    const res = await fetch('http://localhost:3000/api/info/work')
+    return res.text()
+}
+async function getInfo(){
+    const res =  await fetch('http://localhost:8080/info',{
+        method:"GET",
+        headers:{
+            'Accept':"application/json"
         }
     })
-}
-async function getData(){
-    const res = await fetch('http://localhost:8080/info',{ cache: 'no-store' });
-    if(!res.ok){
-      throw new Error('Failed to fetch Data')
-    }
     return res.json()
-  }
-  
-  type infoType={
-    id: number,
-    email: string,
-    name: string
-  }
+}
+type infoProps = { id: number; email: string; name: string; }
 export default async function ListHome() {
-    const data = await getData();
-    const infoDB = data.map((info:infoType)=>{
-        return(
-            <tr key={info.id}>
-                <td style={{whiteSpace:'nowrap'}}>{info.name}</td>
-                <td>{info.email}</td>
-                <td>
-                    <ButtonGroup>
-                        <Button size="sm" color="primary">Edit</Button>
-                        <Button size="sm" color="danger">Delete</Button>
-                    </ButtonGroup>
-                </td>
-            </tr>
-        )
-    })
+    const testTxt = await getTest()
+    const result =  testTxt.toString()
+
+    const infoList = await getInfo().then(data=>{console.log(data); return data})
     return(
         <Table className="mt-4">
             <thead>
@@ -47,7 +31,18 @@ export default async function ListHome() {
             </tr>
             </thead>
             <tbody>
-                {infoDB}
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>{result}</td>
+                </tr>
+                {infoList.length==0?
+                <tr><td colSpan={3}>No Data Available...</td></tr>:
+                infoList.map((info: infoProps)=>{<tr>
+                    <td>het</td>
+                    <td colSpan={2}>{info.email}{
+                }</td></tr>})
+                }
             </tbody>
         </Table>
     )

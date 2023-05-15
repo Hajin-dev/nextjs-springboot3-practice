@@ -1,7 +1,6 @@
 'use client'
 
 import styles from './page.module.scss'
-import NavbarUI from './NavbarUI';
 import {Button,Container} from 'reactstrap';
 import Link from 'next/link';
 import ListHome from './List/ListHome';

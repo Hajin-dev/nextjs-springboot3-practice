@@ -6,9 +6,11 @@ import jakarta.persistence.GenerationType;
 
 import jakarta.persistence.Id;
 import lombok.Setter;
+import lombok.NoArgsConstructor;
 import lombok.Getter;
 @Getter
 @Setter
+@NoArgsConstructor
 @Entity
 public class InfoEntity {
     @Id
@@ -16,9 +18,9 @@ public class InfoEntity {
 
     private String name;
     private String email;
-    //rivate InfoEntity() {}
-    public InfoEntity(String name,String email){
-        this.name=name;
-        this.email=email;
-    }
+    //private InfoEntity() {}
+    // public InfoEntity(String name,String email){
+    //     this.name=name;
+    //     this.email=email;
+    // }
 }
